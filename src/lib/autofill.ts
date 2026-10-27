@@ -4,6 +4,7 @@ import type { Credentials } from '@/lib/secure';
 /** Messages posted from the page back to the app. */
 export type PageMessage =
   | { type: 'page'; url: string; hasPassword: boolean; title: string }
+  | { type: 'captured'; username?: string; password?: string }
   | { type: 'submitted'; step: 'username' | 'password' | 'staySignedIn' }
   | { type: 'loginError'; message: string };
 
@@ -11,21 +12,28 @@ export type PageMessage =
  * Builds the script injected into every page the session web view loads.
  *
  * It reports what kind of page is showing (so the app knows whether the
- * session is live) and, when credentials are supplied, signs in for the
- * user. It handles Colleague's own login form as well as the two-step
- * Microsoft sign-in, and answers "Stay signed in?" with yes so the identity
- * provider issues a long-lived cookie.
+ * session is live). With `remember` on it also:
+ * - remembers what the user types into the Microsoft / Union sign-in form
+ *   (posted back as `captured`, stored by the app in the secure keystore),
+ * - answers Microsoft's "Stay signed in?" with yes, so the identity provider
+ *   issues a long-lived cookie.
+ * When saved credentials are supplied it signs in for the user: it picks the
+ * remembered account on Microsoft's account picker and fills Colleague's
+ * login form or Microsoft's two-step username → password pages.
  *
- * Credentials are only typed into pages on TRUSTED_LOGIN_HOSTS, and each
- * step submits at most once per page load. The app stops passing
- * credentials after a rejected attempt, so a wrong password never loops.
+ * Nothing is read or typed outside TRUSTED_LOGIN_HOSTS, and each step submits
+ * at most once per page load. The app stops passing credentials after a
+ * rejected attempt, so a wrong password never loops.
  */
-export function buildPageScript(creds: Credentials | null) {
+export function buildPageScript(creds: Credentials | null, opts: { remember: boolean }) {
   return `(function () {
   if (window.__uuHub) return;
   window.__uuHub = true;
-  var C = ${JSON.stringify(creds)};
+  var C = ${JSON.stringify(creds && creds.password ? creds : null)};
+  var KNOWN_USER = ${JSON.stringify(creds?.username ?? '')};
+  var REMEMBER = ${JSON.stringify(opts.remember)};
   var HOSTS = ${JSON.stringify(TRUSTED_LOGIN_HOSTS)};
+  var USER_SEL = 'input[name=loginfmt], input[name=UserName], input[name=username], input[type=email], input[autocomplete=username], input#username, input#UserName';
   var done = {};
 
   function post(m) { window.ReactNativeWebView && window.ReactNativeWebView.postMessage(JSON.stringify(m)); }
@@ -61,6 +69,22 @@ export function buildPageScript(creds: Credentials | null) {
     return t && t.length < 300 ? t : '';
   }
 
+  // Remember what the user signs in with, at the moment they submit it.
+  function capture() {
+    if (!REMEMBER || !trusted()) return;
+    var u = first(USER_SEL), p = first('input[type=password]');
+    var m = { type: 'captured' };
+    if (u && u.value && u.type !== 'hidden') m.username = u.value.trim();
+    if (p && p.value) m.password = p.value;
+    if (m.username || m.password) post(m);
+  }
+  document.addEventListener('submit', capture, true);
+  document.addEventListener('click', function (e) {
+    var t = e.target && e.target.closest && e.target.closest('button, input[type=submit], input[type=button], #idSIButton9');
+    if (t) capture();
+  }, true);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Enter') capture(); }, true);
+
   var lastReport = '';
   function tick() {
     var pw = first('input[type=password]');
@@ -76,16 +100,31 @@ export function buildPageScript(creds: Credentials | null) {
       var err = errorText();
       if (err) { post({ type: 'loginError', message: err }); C = null; }
     }
-    if (!C || !trusted()) return;
+    if (!trusted()) return;
 
-    if (!done.staySignedIn && document.querySelector('#KmsiCheckboxField, input[name=DontShowAgain]')) {
+    if ((REMEMBER || C) && !done.staySignedIn && document.querySelector('#KmsiCheckboxField, input[name=DontShowAgain]')) {
       done.staySignedIn = true;
+      var box = document.querySelector('#KmsiCheckboxField, input[name=DontShowAgain]');
+      if (box && !box.checked) box.click();
       var yes = first('#idSIButton9, input[type=submit]');
       if (yes) { post({ type: 'submitted', step: 'staySignedIn' }); yes.click(); }
       return;
     }
 
-    var user = first('input[name=loginfmt], input[name=UserName], input[name=username], input[type=email], input[autocomplete=username], input#username, input#UserName');
+    // Microsoft "Pick an account": choose the remembered one.
+    if (KNOWN_USER && !done.picker) {
+      var tiles = document.querySelectorAll('[data-test-id]');
+      for (var i = 0; i < tiles.length; i++) {
+        if ((tiles[i].getAttribute('data-test-id') || '').toLowerCase() === KNOWN_USER.toLowerCase() && shown(tiles[i])) {
+          done.picker = true;
+          tiles[i].click();
+          return;
+        }
+      }
+    }
+
+    if (!C) return;
+    var user = first(USER_SEL);
     if (pw && !done.password) {
       done.password = true;
       if (user && !user.value) type(user, C.username);

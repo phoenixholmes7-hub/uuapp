@@ -29,7 +29,7 @@ import Animated, {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import WebView, { type WebViewNavigation, type WebViewProps } from 'react-native-webview';
 
-import { SELF_SERVICE_LOGOUT, SELF_SERVICE_ORIGIN } from '@/config/services';
+import { MICROSOFT_LOGOUT, SELF_SERVICE_LOGOUT, SELF_SERVICE_ORIGIN } from '@/config/services';
 import { Radius, Spacing } from '@/constants/theme';
 import { useLayout } from '@/hooks/use-layout';
 import { useTheme } from '@/hooks/use-theme';
@@ -73,7 +73,10 @@ function Portal() {
   const progress = useSharedValue(0);
   const shown = useSharedValue(0);
 
-  const script = useMemo(() => buildPageScript(bridge.autofill), [bridge.autofill]);
+  const script = useMemo(
+    () => buildPageScript(bridge.autofill, { remember: bridge.remember }),
+    [bridge.autofill, bridge.remember],
+  );
   const followLink = useRef<string | undefined>(undefined);
   useEffect(() => {
     followLink.current = sheet.findLink;
@@ -88,10 +91,20 @@ function Portal() {
     bridge.register({
       navigate: (url) =>
         web.current?.injectJavaScript(`location.assign(${JSON.stringify(url)}); true;`),
-      logout: () =>
+      // Log off Self-Service, then Microsoft, so the next sign-in can pick
+      // a different account instead of silently reusing this one.
+      logout: () => {
         web.current?.injectJavaScript(
           `location.assign(${JSON.stringify(SELF_SERVICE_LOGOUT)}); true;`,
-        ),
+        );
+        setTimeout(
+          () =>
+            web.current?.injectJavaScript(
+              `location.assign(${JSON.stringify(MICROSOFT_LOGOUT)}); true;`,
+            ),
+          2500,
+        );
+      },
     });
     return () => bridge.register(null);
   }, [bridge]);

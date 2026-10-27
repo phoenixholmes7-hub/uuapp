@@ -11,6 +11,7 @@ import type Ionicons from '@expo/vector-icons/Ionicons';
 export const SELF_SERVICE_ORIGIN = 'https://selfservice.uu.edu';
 export const SELF_SERVICE_HOME = `${SELF_SERVICE_ORIGIN}/Student`;
 export const SELF_SERVICE_LOGOUT = `${SELF_SERVICE_ORIGIN}/Student/Account/LogOff`;
+export const MICROSOFT_LOGOUT = 'https://login.microsoftonline.com/common/oauth2/v2.0/logout';
 
 /**
  * Hosts the saved credentials may be typed into. Autofill refuses to run on

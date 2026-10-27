@@ -48,20 +48,30 @@ change its `path` there. To add a card, add an entry to `SERVICES`.
 
 ## How sign-in works
 
-`src/lib/autofill.ts` builds a script injected into each page the session web
-view loads. It reports whether the page is a signed-in Self-Service page and,
-when credentials are available, fills Colleague's login form or Microsoft's
-username → password → "Stay signed in" steps.
+Union signs students in with Microsoft (often with MFA), so the app never
+asks for a password itself. **Sign in with Microsoft** opens Microsoft's real
+sign-in page inside the app's web view; the app watches for Self-Service to
+open and then switches to Home.
+
+With **Keep me signed in** on:
+
+- the app answers Microsoft's "Stay signed in?" with yes, so Microsoft keeps
+  a long-lived session cookie;
+- what you type into the Microsoft / Union sign-in form is saved to the
+  device keychain, and `src/lib/autofill.ts` uses it to sign back in silently
+  (choosing your account on "Pick an account", or filling username and
+  password) whenever that cookie runs out.
 
 Safety rails:
 
-- Credentials are only typed into pages on `TRUSTED_LOGIN_HOSTS`
+- Nothing is read from or typed into pages outside `TRUSTED_LOGIN_HOSTS`
   (`uu.edu` and `login.microsoftonline.com`).
-- If a login page shows an error, the app stops autofilling and asks you to
-  sign in again, so a changed password can't lock your account through retries.
-- If sign-in doesn't finish within 20 seconds (for example an MFA prompt),
-  the page is shown so you can finish it yourself.
-- Signing out deletes the stored credentials and logs off Self-Service.
+- If a sign-in page shows an error, autofill stops and Home asks you to sign
+  in again (your new password is saved), so retries can't lock your account.
+- If a silent sign-in stalls (for example an MFA approval), Home shows a
+  "Sign in" banner that opens the page.
+- Signing out deletes the saved sign-in and logs off Self-Service and
+  Microsoft.
 
 ## Layout
 

@@ -20,8 +20,6 @@ export type AuthStatus = 'loading' | 'locked' | 'signedOut' | 'signedIn';
 /** State of the background Self-Service web session. */
 export type PortalState = 'idle' | 'connecting' | 'ready' | 'attention' | 'error';
 
-export type SignInResult = { ok: true } | { ok: false; message: string };
-
 export type PortalController = {
   navigate: (url: string) => void;
   logout: () => void;
@@ -37,20 +35,25 @@ type SessionValue = {
   biometricAvailable: boolean;
   portal: PortalState;
   sheet: SheetState;
-  signIn: (creds: Credentials, remember: boolean) => Promise<SignInResult>;
-  cancelSignIn: () => void;
+  /** True while the Microsoft sign-in page is up for the user. */
+  signingIn: boolean;
+  signIn: (remember: boolean) => void;
   signOut: () => Promise<void>;
   unlock: () => Promise<boolean>;
   setBiometricLock: (on: boolean) => Promise<boolean>;
   openPage: (url: string, title: string, findLink?: string) => void;
+  /** Show the sign-in page so the user can finish (MFA, changed password…). */
+  resumeSignIn: () => void;
   closeSheet: () => void;
 };
 
 type PortalBridge = {
-  /** Whether the hidden web view should be mounted at all. */
+  /** Whether the web view should be mounted at all. */
   active: boolean;
   /** Credentials autofill may use right now (null after a rejection). */
   autofill: Credentials | null;
+  /** Remember what the user signs in with, and keep Microsoft signed in. */
+  remember: boolean;
   startUrl: string;
   onMessage: (msg: PageMessage) => void;
   register: (c: PortalController | null) => void;
@@ -59,8 +62,8 @@ type PortalBridge = {
 const SessionContext = createContext<SessionValue | null>(null);
 const PortalContext = createContext<PortalBridge | null>(null);
 
-/** How long to wait for a silent sign-in before showing the page (MFA etc.). */
-const ATTENTION_AFTER_MS = 20000;
+/** How long a silent sign-in may take before we ask the user to look. */
+const ATTENTION_AFTER_MS = 15000;
 
 export function SessionProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<AuthStatus>('loading');
@@ -74,19 +77,18 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const [sheet, setSheet] = useState<SheetState>({ open: false, title: '', url: '' });
 
   const controller = useRef<PortalController | null>(null);
-  const pending = useRef<((r: SignInResult) => void) | null>(null);
+  /** What the user typed into the sign-in form this session (if remembering). */
+  const captured = useRef<Partial<Credentials>>({});
   const attentionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const settle = useCallback((result: SignInResult) => {
+  const clearAttentionTimer = () => {
     if (attentionTimer.current) clearTimeout(attentionTimer.current);
     attentionTimer.current = null;
-    const resolve = pending.current;
-    pending.current = null;
-    resolve?.(result);
-  }, []);
+  };
 
-  // Restore the saved account on launch. With a saved password the user goes
-  // straight to Home and the web session signs in behind the scenes.
+  // Restore the saved account on launch. The user goes straight to Home and
+  // the web session reconnects behind the scenes — via Microsoft's long-lived
+  // "stay signed in" cookie, or the saved password if that has expired.
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -106,64 +108,79 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     })();
   }, []);
 
+  // A silent reconnect that stalls (MFA prompt, new password) needs the user.
+  useEffect(() => {
+    if (status !== 'signedIn' || portal !== 'connecting') return;
+    attentionTimer.current = setTimeout(() => setPortal('attention'), ATTENTION_AFTER_MS);
+    return clearAttentionTimer;
+  }, [status, portal]);
+
+  const onSignedIn = useCallback(async () => {
+    clearAttentionTimer();
+    setPortal('ready');
+    setAutofillOn(true);
+    const typed = captured.current;
+    captured.current = {};
+    if (!signingIn && !typed.password) return;
+
+    const next: Credentials = {
+      username: typed.username || creds?.username || '',
+      password: typed.password || creds?.password || '',
+    };
+    setCreds(next);
+    // signIn() set `remembered` to the user's choice before opening the page.
+    if (remembered) await saveAccount({ ...next, remember: true, biometricLock });
+    if (signingIn) {
+      setSigningIn(false);
+      setSheet((s) => ({ ...s, open: false }));
+      setStatus('signedIn');
+    }
+  }, [signingIn, creds, remembered, biometricLock]);
+
   const onMessage = useCallback(
     (msg: PageMessage) => {
-      if (msg.type === 'loginError') {
-        setAutofillOn(false);
-        setPortal('error');
-        settle({ ok: false, message: msg.message });
-        return;
-      }
-      if (msg.type !== 'page') return;
-      if (isSignedInPage(msg, SELF_SERVICE_ORIGIN)) {
-        setPortal('ready');
-        if (pending.current) {
-          setSheet((s) => ({ ...s, open: false }));
-          settle({ ok: true });
-        }
-      } else if (msg.hasPassword) {
-        setPortal((p) => (p === 'ready' ? 'connecting' : p));
+      switch (msg.type) {
+        case 'captured':
+          captured.current = {
+            username: msg.username ?? captured.current.username,
+            password: msg.password ?? captured.current.password,
+          };
+          return;
+        case 'loginError':
+          // Saved password was rejected: stop autofilling, let the user retype.
+          if (!signingIn) {
+            setAutofillOn(false);
+            setPortal('error');
+          }
+          return;
+        case 'page':
+          if (isSignedInPage(msg, SELF_SERVICE_ORIGIN)) onSignedIn();
+          else if (msg.hasPassword) setPortal((p) => (p === 'ready' ? 'connecting' : p));
+          return;
       }
     },
-    [settle],
+    [signingIn, onSignedIn],
   );
 
-  const signIn = useCallback(
-    (next: Credentials, remember: boolean) =>
-      new Promise<SignInResult>((resolve) => {
-        const finish = async (result: SignInResult) => {
-          setSigningIn(false);
-          if (result.ok) {
-            setRemembered(remember);
-            if (remember) await saveAccount({ ...next, remember, biometricLock: false });
-            setStatus('signedIn');
-          }
-          resolve(result);
-        };
+  const signIn = useCallback((remember: boolean) => {
+    setRemembered(remember);
+    if (Platform.OS === 'web') {
+      // The web preview can't host Microsoft's page; open it and trust it.
+      window.open(SELF_SERVICE_HOME, '_blank', 'noopener');
+      setStatus('signedIn');
+      return;
+    }
+    captured.current = {};
+    setSigningIn(true);
+    setPortal('connecting');
+    controller.current?.navigate(SELF_SERVICE_HOME);
+    setSheet({ open: true, title: 'Sign in with Microsoft', url: SELF_SERVICE_HOME });
+  }, []);
 
-        setCreds(next);
-        setAutofillOn(true);
-        setSigningIn(true);
-
-        // The web build can't observe a cross-origin login, so it trusts the form.
-        if (Platform.OS === 'web') return finish({ ok: true });
-
-        pending.current = finish;
-        setPortal('connecting');
-        controller.current?.navigate(SELF_SERVICE_HOME);
-        attentionTimer.current = setTimeout(() => {
-          // Probably MFA or an unfamiliar login page: let the user finish it.
-          setPortal('attention');
-          setSheet({ open: true, title: 'Finish signing in', url: SELF_SERVICE_HOME });
-        }, ATTENTION_AFTER_MS);
-      }),
-    [],
-  );
-
-  const cancelSignIn = useCallback(() => {
-    settle({ ok: false, message: '' });
-    setSheet((s) => ({ ...s, open: false }));
-  }, [settle]);
+  const resumeSignIn = useCallback(() => {
+    setSheet({ open: true, title: 'Sign in', url: SELF_SERVICE_HOME });
+    controller.current?.navigate(SELF_SERVICE_HOME);
+  }, []);
 
   const signOut = useCallback(async () => {
     controller.current?.logout();
@@ -171,6 +188,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     setCreds(null);
     setRemembered(false);
     setBiometricLockState(false);
+    setSigningIn(false);
     setPortal('idle');
     setSheet({ open: false, title: '', url: '' });
     setStatus('signedOut');
@@ -209,7 +227,10 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     setSheet({ open: true, title, url, findLink });
   }, []);
 
-  const closeSheet = useCallback(() => setSheet((s) => ({ ...s, open: false })), []);
+  const closeSheet = useCallback(() => {
+    setSheet((s) => ({ ...s, open: false }));
+    setSigningIn(false);
+  }, []);
 
   const register = useCallback((c: PortalController | null) => {
     controller.current = c;
@@ -218,18 +239,19 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const session = useMemo<SessionValue>(
     () => ({
       status,
-      username: creds?.username ?? null,
+      username: creds?.username || null,
       remembered,
       biometricLock,
       biometricAvailable,
       portal,
       sheet,
+      signingIn,
       signIn,
-      cancelSignIn,
       signOut,
       unlock,
       setBiometricLock,
       openPage,
+      resumeSignIn,
       closeSheet,
     }),
     [
@@ -240,25 +262,29 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       biometricAvailable,
       portal,
       sheet,
+      signingIn,
       signIn,
-      cancelSignIn,
       signOut,
       unlock,
       setBiometricLock,
       openPage,
+      resumeSignIn,
       closeSheet,
     ],
   );
 
   const bridge = useMemo<PortalBridge>(
     () => ({
-      active: status === 'signedIn' || signingIn,
-      autofill: autofillOn ? creds : null,
+      // Mounted on the login screen too, so Microsoft's page is ready to show
+      // instantly and sign-out can finish logging off.
+      active: status === 'signedIn' || status === 'signedOut',
+      autofill: autofillOn && !signingIn ? creds : null,
+      remember: remembered,
       startUrl: SELF_SERVICE_HOME,
       onMessage,
       register,
     }),
-    [status, signingIn, autofillOn, creds, onMessage, register],
+    [status, autofillOn, signingIn, creds, remembered, onMessage, register],
   );
 
   return (

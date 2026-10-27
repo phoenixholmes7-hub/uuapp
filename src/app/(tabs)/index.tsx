@@ -23,7 +23,7 @@ function resolve(ids: string[]) {
 }
 
 export default function HomeScreen() {
-  const { username, portal, signOut } = useSession();
+  const { username, portal, resumeSignIn } = useSession();
   const { favorites, recent, homeView, update } = usePrefs();
   const theme = useTheme();
 
@@ -37,18 +37,22 @@ export default function HomeScreen() {
   return (
     <Screen
       title={firstName ? `${greeting()}, ${capitalise(firstName)}` : greeting()}
-      right={Platform.OS === 'web' ? undefined : <StatusPill state={portal} />}>
-      {portal === 'error' && (
+      right={
+        Platform.OS === 'web' ? undefined : <StatusPill state={portal} onPress={resumeSignIn} />
+      }>
+      {(portal === 'error' || portal === 'attention') && (
         <Animated.View
           entering={FadeIn}
           exiting={FadeOut}
           style={[styles.banner, { backgroundColor: theme.tint, borderColor: theme.accent }]}>
           <Ionicons name="alert-circle" size={20} color={theme.accent} />
           <Text style={[styles.bannerText, { color: theme.text }]}>
-            Self-Service rejected your saved password. Sign in again to update it.
+            {portal === 'error'
+              ? 'Microsoft rejected your saved password. Sign in again to update it.'
+              : 'Self-Service needs you to finish signing in (for example an MFA approval).'}
           </Text>
-          <Pressable onPress={signOut} hitSlop={8}>
-            <Text style={[styles.bannerAction, { color: theme.primary }]}>Update</Text>
+          <Pressable onPress={resumeSignIn} hitSlop={8}>
+            <Text style={[styles.bannerAction, { color: theme.primary }]}>Sign in</Text>
           </Pressable>
         </Animated.View>
       )}
@@ -88,16 +92,20 @@ const STATUS: Record<
   error: { label: 'Sign-in failed', color: 'accent' },
 };
 
-function StatusPill({ state }: { state: PortalState }) {
+function StatusPill({ state, onPress }: { state: PortalState; onPress: () => void }) {
   const theme = useTheme();
   const { label, color } = STATUS[state];
+  const actionable = state !== 'ready';
   return (
-    <View
+    <Pressable
+      onPress={onPress}
+      disabled={!actionable}
+      accessibilityRole={actionable ? 'button' : undefined}
       accessibilityLabel={`Self-Service: ${label}`}
       style={[styles.pill, { backgroundColor: theme.surface, borderColor: theme.border }]}>
       <View style={[styles.dot, { backgroundColor: theme[color] }]} />
       <Text style={[styles.pillText, { color: theme.textSecondary }]}>{label}</Text>
-    </View>
+    </Pressable>
   );
 }
 

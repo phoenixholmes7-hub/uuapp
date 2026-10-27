@@ -1,187 +1,107 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import * as Haptics from 'expo-haptics';
-import { useRef, useState } from 'react';
+import { Image } from 'expo-image';
+import { useState } from 'react';
 import {
   ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
   Switch,
   Text,
-  TextInput,
-  type TextInputInstance,
   View,
 } from 'react-native';
-import Animated, {
-  FadeIn,
-  FadeInDown,
-  useAnimatedStyle,
-  useSharedValue,
-  withSequence,
-  withTiming,
-} from 'react-native-reanimated';
+import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { useSession } from '@/state/session';
 
+/**
+ * Union signs students in with Microsoft (with MFA), so the app doesn't ask
+ * for a password itself: it shows Microsoft's real sign-in page and watches
+ * for the moment Self-Service opens. With "Keep me signed in" on, the app
+ * says yes to Microsoft's "Stay signed in?" and remembers what was typed
+ * there, so later sign-ins happen on their own.
+ */
 export default function LoginScreen() {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
-  const { signIn, cancelSignIn, portal } = useSession();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const { signIn, signingIn } = useSession();
   const [remember, setRemember] = useState(true);
-  const [showPassword, setShowPassword] = useState(false);
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState('');
-  const passwordRef = useRef<TextInputInstance>(null);
-
-  const shake = useSharedValue(0);
-  const shakeStyle = useAnimatedStyle(() => ({ transform: [{ translateX: shake.value }] }));
-
-  const submit = async () => {
-    if (!username.trim() || !password || busy) return;
-    setError('');
-    setBusy(true);
-    const result = await signIn({ username: username.trim(), password }, remember);
-    setBusy(false);
-    if (!result.ok && result.message) {
-      setError(result.message);
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error).catch(() => {});
-      shake.set(
-        withSequence(
-          withTiming(-10, { duration: 50 }),
-          withTiming(10, { duration: 50 }),
-          withTiming(-6, { duration: 50 }),
-          withTiming(0, { duration: 50 }),
-        ),
-      );
-    }
-  };
-
-  const field = [styles.field, { backgroundColor: theme.surface, borderColor: theme.border }];
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={{ flex: 1, backgroundColor: theme.background }}>
-      <ScrollView
-        keyboardShouldPersistTaps="handled"
-        contentContainerStyle={[
-          styles.container,
-          { paddingTop: insets.top + Spacing.six, paddingBottom: insets.bottom + Spacing.four },
-        ]}>
-        <Animated.View entering={FadeInDown.duration(400)} style={styles.brand}>
-          <View style={[styles.logo, { backgroundColor: theme.primary }]}>
-            <Ionicons name="school" size={30} color={theme.primaryText} />
-          </View>
-          <Text style={[styles.title, { color: theme.text }]}>Union Hub</Text>
-          <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-            Sign in with your Union University account
-          </Text>
-        </Animated.View>
+    <ScrollView
+      style={{ flex: 1, backgroundColor: theme.background }}
+      contentContainerStyle={[
+        styles.container,
+        { paddingTop: insets.top + Spacing.six, paddingBottom: insets.bottom + Spacing.four },
+      ]}>
+      <Animated.View entering={FadeInDown.duration(400)} style={styles.brand}>
+        <Image
+          source={require('@/assets/images/startup-logo.png')}
+          style={styles.logo}
+          contentFit="contain"
+          accessibilityIgnoresInvertColors
+        />
+        <Text style={[styles.title, { color: theme.text }]}>Union Hub</Text>
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          Sign in with your Union University Microsoft account
+        </Text>
+      </Animated.View>
 
-        <Animated.View
-          entering={FadeInDown.delay(80).duration(400)}
-          style={[styles.form, shakeStyle]}>
-          <TextInput
-            value={username}
-            onChangeText={setUsername}
-            placeholder="Username or email"
-            placeholderTextColor={theme.textSecondary}
-            autoCapitalize="none"
-            autoCorrect={false}
-            autoComplete="username"
-            textContentType="username"
-            returnKeyType="next"
-            onSubmitEditing={() => passwordRef.current?.focus()}
-            editable={!busy}
-            style={[field, { color: theme.text }]}
-          />
-          <View style={field}>
-            <TextInput
-              ref={passwordRef}
-              value={password}
-              onChangeText={setPassword}
-              placeholder="Password"
-              placeholderTextColor={theme.textSecondary}
-              secureTextEntry={!showPassword}
-              autoComplete="current-password"
-              textContentType="password"
-              returnKeyType="go"
-              onSubmitEditing={submit}
-              editable={!busy}
-              style={[styles.passwordInput, { color: theme.text }]}
-            />
-            <Pressable
-              hitSlop={10}
-              onPress={() => setShowPassword((v) => !v)}
-              accessibilityLabel={showPassword ? 'Hide password' : 'Show password'}>
-              <Ionicons
-                name={showPassword ? 'eye-off' : 'eye'}
-                size={20}
-                color={theme.textSecondary}
-              />
-            </Pressable>
-          </View>
-
-          <View style={styles.remember}>
-            <View style={{ flex: 1 }}>
-              <Text style={[styles.rememberLabel, { color: theme.text }]}>Keep me signed in</Text>
-              <Text style={{ color: theme.textSecondary, fontSize: 13 }}>
-                Signs you back in automatically. Stored in the device keychain.
+      <Animated.View entering={FadeInDown.delay(80).duration(400)} style={styles.form}>
+        <Pressable
+          onPress={() => signIn(remember)}
+          disabled={signingIn}
+          accessibilityRole="button"
+          accessibilityLabel="Sign in with Microsoft"
+          style={({ pressed }) => [
+            styles.button,
+            { backgroundColor: theme.primary, opacity: pressed ? 0.8 : 1 },
+          ]}>
+          {signingIn ? (
+            <ActivityIndicator color={theme.primaryText} />
+          ) : (
+            <>
+              <Ionicons name="logo-microsoft" size={20} color={theme.primaryText} />
+              <Text style={[styles.buttonText, { color: theme.primaryText }]}>
+                Sign in with Microsoft
               </Text>
-            </View>
-            <Switch
-              value={remember}
-              onValueChange={setRemember}
-              trackColor={{ true: theme.primary }}
-            />
-          </View>
-
-          {error ? (
-            <Animated.Text entering={FadeIn} style={[styles.error, { color: theme.accent }]}>
-              {error}
-            </Animated.Text>
-          ) : null}
-
-          <Pressable
-            onPress={submit}
-            disabled={busy}
-            accessibilityRole="button"
-            style={({ pressed }) => [
-              styles.button,
-              {
-                backgroundColor: theme.primary,
-                opacity: pressed || !username || !password ? 0.75 : 1,
-              },
-            ]}>
-            {busy ? (
-              <ActivityIndicator color={theme.primaryText} />
-            ) : (
-              <Text style={[styles.buttonText, { color: theme.primaryText }]}>Sign in</Text>
-            )}
-          </Pressable>
-
-          {busy && (
-            <Animated.View entering={FadeIn} style={styles.waiting}>
-              <Text style={{ color: theme.textSecondary, textAlign: 'center' }}>
-                {portal === 'attention'
-                  ? 'Finish signing in on the Union page that just opened.'
-                  : 'Connecting to Self-Service…'}
-              </Text>
-              <Pressable onPress={cancelSignIn} hitSlop={8}>
-                <Text style={{ color: theme.primary, fontWeight: '600' }}>Cancel</Text>
-              </Pressable>
-            </Animated.View>
+            </>
           )}
-        </Animated.View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+        </Pressable>
+
+        <View
+          style={[styles.remember, { backgroundColor: theme.surface, borderColor: theme.border }]}>
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.rememberLabel, { color: theme.text }]}>Keep me signed in</Text>
+            <Text style={{ color: theme.textSecondary, fontSize: 13, lineHeight: 18 }}>
+              Stays signed in to Microsoft and saves your sign-in in this device&apos;s secure
+              keychain, so you won&apos;t have to log in again.
+            </Text>
+          </View>
+          <Switch
+            value={remember}
+            onValueChange={setRemember}
+            trackColor={{ true: theme.primary }}
+          />
+        </View>
+
+        {signingIn && (
+          <Animated.Text
+            entering={FadeIn}
+            style={{ color: theme.textSecondary, textAlign: 'center' }}>
+            Finish signing in on the Microsoft page. Approve the request in Authenticator if asked.
+          </Animated.Text>
+        )}
+
+        <Text style={[styles.note, { color: theme.textSecondary }]}>
+          Use your full Union email (for example name@my.uu.edu). Your password goes only to
+          Microsoft and uu.edu.
+        </Text>
+      </Animated.View>
+    </ScrollView>
   );
 }
 
@@ -195,36 +115,27 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   brand: { alignItems: 'center', gap: Spacing.two },
-  logo: {
-    width: 64,
-    height: 64,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: Spacing.two,
-  },
+  logo: { width: 120, height: 120, marginBottom: Spacing.two },
   title: { fontSize: 30, fontWeight: '800', letterSpacing: -0.5 },
   subtitle: { fontSize: 15, textAlign: 'center' },
-  form: { gap: 12 },
-  field: {
+  form: { gap: Spacing.three },
+  button: {
+    height: 54,
+    borderRadius: Radius.md,
     flexDirection: 'row',
     alignItems: 'center',
-    height: 52,
-    borderRadius: Radius.md,
-    borderWidth: StyleSheet.hairlineWidth * 2,
-    paddingHorizontal: Spacing.three,
-    fontSize: 16,
+    justifyContent: 'center',
+    gap: Spacing.two,
   },
-  passwordInput: { flex: 1, fontSize: 16, height: '100%', outlineWidth: 0 },
+  buttonText: { fontSize: 17, fontWeight: '700' },
   remember: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.three,
-    paddingVertical: Spacing.two,
+    padding: Spacing.three,
+    borderRadius: Radius.md,
+    borderWidth: StyleSheet.hairlineWidth * 2,
   },
-  rememberLabel: { fontSize: 16, fontWeight: '600' },
-  error: { fontSize: 14, lineHeight: 19 },
-  button: { height: 52, borderRadius: Radius.md, alignItems: 'center', justifyContent: 'center' },
-  buttonText: { fontSize: 17, fontWeight: '700' },
-  waiting: { alignItems: 'center', gap: Spacing.two },
+  rememberLabel: { fontSize: 16, fontWeight: '600', marginBottom: 2 },
+  note: { fontSize: 12, lineHeight: 17, textAlign: 'center' },
 });
