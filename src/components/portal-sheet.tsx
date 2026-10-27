@@ -234,7 +234,6 @@ function Portal() {
             allowsBackForwardNavigationGestures
             pullToRefreshEnabled
             allowsInlineMediaPlayback
-            decelerationRate="normal"
             style={{ backgroundColor: theme.surface }}
           />
           {signingIn && (
