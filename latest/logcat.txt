@@ -1,0 +1,337 @@
+10-27 05:44:50.396 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:50.396 W/Telephony( 1052): registerImsRegistrationCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:50.530 V/WindowManagerShell(  834): Transition requested: android.os.BinderProxy@2684fad TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.phoenixholmes.unionhub/.MainActivity } baseActivity=ComponentInfo{com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity} topActivity=ComponentInfo{com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity} origActivity=null realActivity=ComponentInfo{com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity} numActivities=1 lastActiveTime=50637 supportsMultiWindow=true resizeMode=2 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@b7ed2e2} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{60cd673 com.phoenixholmes.unionhub.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-27 05:44:50.569 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:50.571 W/Telephony( 1052): registerImsRegistrationCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:50.627 I/ActivityTaskManager(  519): START u0 {flg=0x10000000 cmp=com.phoenixholmes.unionhub/.MainActivity} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+10-27 05:44:50.665 D/CoreBackPreview(  519): Window{fdddf01 u0 Splash Screen com.phoenixholmes.unionhub}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@2d87af9, mPriority=0, mIsAnimationCallback=false}
+10-27 05:44:50.684 I/ActivityManager(  519): Start proc 3339:com.phoenixholmes.unionhub/u0a192 for next-top-activity {com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity}
+10-27 05:44:50.699 W/AiAiAutofill( 1652): java.lang.SecurityException: caller is not user's Augmented Autofill Service
+10-27 05:44:50.804 V/WindowManager(  519): Sent Transition #6 createdAt=10-27 05:44:50.459 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.phoenixholmes.unionhub/.MainActivity } baseActivity=ComponentInfo{com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity} topActivity=ComponentInfo{com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity} origActivity=null realActivity=ComponentInfo{com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity} numActivities=1 lastActiveTime=50637 supportsMultiWindow=true resizeMode=2 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{74028b4 Task{7873b58 #8 type=standard A=10192:com.phoenixholmes.unionhub}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{1f05cdd com.phoenixholmes.unionhub.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-27 05:44:50.811 V/WindowManager(  519):     info={id=6 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{74028b4 Task{7873b58 #8 type=standard A=10192:com.phoenixholmes.unionhub}}} m=OPEN f=NONE leash=Surface(name=Task=8)/@0x9fde7a1 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{f911052 Task{609b59d #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x6d124e0 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+10-27 05:44:50.979 I/netd    (  335): networkAddInterface(101, eth0) -> ServiceSpecificException(64, "Machine is not on the network") <0.02ms>
+10-27 05:44:50.979 W/ConnectivityService(  519): Exception adding interface: android.os.ServiceSpecificException: Machine is not on the network (code 64)
+10-27 05:44:50.979 I/netd    (  335): networkAddRouteParcel(101, RouteInfoParcel{destination: 10.0.2.0/24, ifName: eth0, nextHop: , mtu: 0}) -> ServiceSpecificException(64, "Machine is not on the network") <0.01ms>
+10-27 05:44:50.979 E/ConnectivityService(  519): Exception in networkAddRouteParcel for non-gateway: android.os.ServiceSpecificException: Machine is not on the network (code 64)
+10-27 05:44:50.979 I/netd    (  335): networkAddRouteParcel(101, RouteInfoParcel{destination: 0.0.0.0/0, ifName: eth0, nextHop: 10.0.2.2, mtu: 1500}) -> ServiceSpecificException(64, "Machine is not on the network") <0.01ms>
+10-27 05:44:50.979 E/ConnectivityService(  519): Exception in networkAddRouteParcel for gateway: android.os.ServiceSpecificException: Machine is not on the network (code 64)
+10-27 05:44:51.070 I/SdkSandboxManager(  519): No SDKs used. Skipping SDK data reconcilation for CallingInfo{mUid=10192, mPackageName='com.phoenixholmes.unionhub, mAppProcessToken='null'}
+10-27 05:44:51.107 E/PhenotypeFlagCommitter( 2501): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:44:51.197 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:51.228 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:51.512 I/holmes.unionhub( 3339): Using CollectorTypeCC GC.
+10-27 05:44:51.512 W/holmes.unionhub( 3339): Unexpected CPU variant for x86: x86_64.
+10-27 05:44:51.512 W/holmes.unionhub( 3339): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
+10-27 05:44:51.513 E/holmes.unionhub( 3339): Not starting debugger since process cannot load the jdwp agent.
+10-27 05:44:51.750 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:51.946 D/nativeloader( 3339): Configuring clns-6 for other apk /data/app/~~Zgt56xSIpyB18y22GV_Shw==/com.phoenixholmes.unionhub-dzzonuPVLjNWE0WpRdHfrA==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~Zgt56xSIpyB18y22GV_Shw==/com.phoenixholmes.unionhub-dzzonuPVLjNWE0WpRdHfrA==/lib/x86_64:/data/app/~~Zgt56xSIpyB18y22GV_Shw==/com.phoenixholmes.unionhub-dzzonuPVLjNWE0WpRdHfrA==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.phoenixholmes.unionhub
+10-27 05:44:52.035 V/GraphicsEnvironment( 3339): ANGLE GameManagerService for com.phoenixholmes.unionhub: false
+10-27 05:44:52.036 V/GraphicsEnvironment( 3339): com.phoenixholmes.unionhub is not listed in per-application setting
+10-27 05:44:52.044 W/SoLoader( 3339): Recording new base apk path: /data/app/~~Zgt56xSIpyB18y22GV_Shw==/com.phoenixholmes.unionhub-dzzonuPVLjNWE0WpRdHfrA==/base.apk
+10-27 05:44:52.045 I/SoLoader( 3339): Preparing SO source: DirectApkSoSource[root = [/data/app/~~Zgt56xSIpyB18y22GV_Shw==/com.phoenixholmes.unionhub-dzzonuPVLjNWE0WpRdHfrA==/base.apk!/lib/x86_64]]
+10-27 05:44:52.052 I/SoLoader( 3339): Preparing SO source: ApplicationSoSource[DirectorySoSource[root = /data/app/~~Zgt56xSIpyB18y22GV_Shw==/com.phoenixholmes.unionhub-dzzonuPVLjNWE0WpRdHfrA==/lib/x86_64 flags = 0]]
+10-27 05:44:52.102 D/CarrierSvcBindHelper( 1052): onPackageAdded: com.phoenixholmes.unionhub
+10-27 05:44:52.114 D/CarrierSvcBindHelper( 1052): onPackageModified: com.phoenixholmes.unionhub
+10-27 05:44:52.114 D/ImsResolver( 1052): maybeAddedImsService, packageName: com.phoenixholmes.unionhub
+10-27 05:44:52.142 D/ImsResolver( 1052): maybeAddedImsService, packageName: com.phoenixholmes.unionhub
+10-27 05:44:52.249 W/AsyncOperation( 1401): OperationException[Status{statusCode=unknown status code: 29503, resolution=null}]
+10-27 05:44:52.304 D/CoreBackPreview(  519): Window{d1014c8 u0 com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@b75b574, mPriority=0, mIsAnimationCallback=false}
+10-27 05:44:52.512 W/AsyncOperation( 1401): OperationException[Status{statusCode=unknown status code: 29503, resolution=null}]
+10-27 05:44:52.512 W/AsyncOperation( 1401): OperationException[Status{statusCode=unknown status code: 29503, resolution=null}]
+10-27 05:44:52.520 D/SystemServerTimingAsync(  519): ssm.onCompletedEventUser-0_{|Unlocked|}_com.android.server.webkit.WebViewUpdateService
+10-27 05:44:52.520 V/SystemServerTimingAsync(  519): ssm.onCompletedEventUser-0_{|Unlocked|}_com.android.server.webkit.WebViewUpdateService took to complete: 0ms
+10-27 05:44:52.580 W/unknown:ViewManagerPropertyUpdater( 3339): Could not find generated setter for class com.reactnativecommunity.webview.RNCWebViewManager
+10-27 05:44:52.671 E/SystemServiceRegistry(  999): android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+10-27 05:44:52.679 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:52.680 W/Telephony( 1052): registerImsRegistrationCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:52.740 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:52.781 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:52.864 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:53.150 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:53.230 I/ReactNativeJS( 3339): Running "main"
+10-27 05:44:53.300 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:53.659 D/ConnectivityService(  519): requestNetwork for uid/pid:10192/3339 activeRequest: null callbackRequest: 93 [NetworkRequest [ REQUEST id=94, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+10-27 05:44:53.667 D/WifiNetworkFactory(  519): got request NetworkRequest [ REQUEST id=94, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]
+10-27 05:44:53.667 D/UntrustedWifiNetworkFactory(  519): got request NetworkRequest [ REQUEST id=94, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]
+10-27 05:44:53.667 D/OemPaidWifiNetworkFactory(  519): got request NetworkRequest [ REQUEST id=94, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]
+10-27 05:44:53.667 D/MultiInternetWifiNetworkFactory(  519): got request NetworkRequest [ REQUEST id=94, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]
+10-27 05:44:53.671 I/ReactNative( 3339): [GESTURE HANDLER] Initialize gesture handler for root view q75{4865fc4 V.E...... ......ID 0,0-320,640 #1}
+10-27 05:44:53.698 D/BiometricService/PreAuthInfo(  519): Package: com.phoenixholmes.unionhub Sensor ID: 4 Modality: 8 Status: 7
+10-27 05:44:53.699 D/BiometricService/PreAuthInfo(  519): Package: com.phoenixholmes.unionhub Sensor ID: 0 Modality: 2 Status: 7
+10-27 05:44:53.822 I/ActivityTaskManager(  519): Displayed com.phoenixholmes.unionhub/.MainActivity for user 0: +3s393ms
+10-27 05:44:53.897 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:53.934 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:53.935 W/Telephony( 1052): registerImsRegistrationCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:54.091 E/SystemServiceRegistry(  999): android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+10-27 05:44:54.153 D/BiometricService/PreAuthInfo(  519): Package: com.phoenixholmes.unionhub Sensor ID: 4 Modality: 8 Status: 7
+10-27 05:44:54.155 D/BiometricService/PreAuthInfo(  519): Package: com.phoenixholmes.unionhub Sensor ID: 0 Modality: 2 Status: 7
+10-27 05:44:54.162 I/ImeTracker(  519): com.phoenixholmes.unionhub:68691160: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-27 05:44:54.162 I/ImeTracker(  519): com.phoenixholmes.unionhub:68691160: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-27 05:44:54.195 I/GoogleInputMethodService( 1504): GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=com.phoenixholmes.unionhub fieldId=0 fieldName=null extras=null}, false)
+10-27 05:44:54.312 D/CoreBackPreview(  519): Window{fdddf01 u0 Splash Screen com.phoenixholmes.unionhub}: Setting back callback null
+10-27 05:44:54.312 W/InputManager-JNI(  519): Input channel object 'fdddf01 Splash Screen com.phoenixholmes.unionhub (client)' was disposed without first being removed with the input manager!
+10-27 05:44:54.942 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:55.098 I/WebViewFactory( 3339): Loading com.google.android.webview version 113.0.5672.136 (code 567263637)
+10-27 05:44:55.102 E/holmes.unionhub( 3339): Failed to open APK '/data/resource-cache/com.android.systemui-neutral-Uc8O.frro': Invalid file
+10-27 05:44:55.104 E/holmes.unionhub( 3339): Failed to open APK '/data/resource-cache/com.android.systemui-accent-L3DD.frro': Invalid file
+10-27 05:44:55.107 E/holmes.unionhub( 3339): Failed to open APK '/data/resource-cache/com.android.systemui-dynamic-TxUu.frro': Invalid file
+10-27 05:44:55.259 W/holmes.unionhub( 3339): Entry not found
+10-27 05:44:55.262 D/nativeloader( 3339): Configuring clns-7 for other apk /data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/lib/x86_64:/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+10-27 05:44:55.263 D/nativeloader( 3339): Configuring clns-8 for other apk /data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/lib/x86_64:/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+10-27 05:44:55.266 W/Telephony( 1052): registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+10-27 05:44:55.359 E/constellation( 1449): java.io.IOException: AUTHENTICATION_FAILED
+10-27 05:44:55.612 I/cr_VariationsUtils( 3339): Failed reading seed file "/data/user/0/com.phoenixholmes.unionhub/app_webview/variations_seed_new"
+10-27 05:44:55.612 I/cr_VariationsUtils( 3339): Failed reading seed file "/data/user/0/com.phoenixholmes.unionhub/app_webview/variations_seed"
+10-27 05:44:56.080 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:56.121 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:56.246 E/TaskWorkerFactory( 1576): java.lang.NoSuchMethodException: com.android.devicelockcontroller.provision.worker.DeviceCheckInWorker.<init> [class android.content.Context, class androidx.work.WorkerParameters, interface com.google.common.util.concurrent.ListeningExecutorService]
+10-27 05:44:56.265 I/ActivityManager(  519): Start proc 3736:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0ai9000 for  {com.phoenixholmes.unionhub/org.chromium.content.app.SandboxedProcessService0:0}
+10-27 05:44:56.548 D/StrictMode( 1760): 	at android.os.Parcel.readExceptionCode(Parcel.java:3002)
+10-27 05:44:56.548 D/StrictMode( 1760): 	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:139)
+10-27 05:44:56.549 D/StrictMode( 1760): 	at android.os.Parcel.readExceptionCode(Parcel.java:3002)
+10-27 05:44:56.549 D/StrictMode( 1760): 	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:139)
+10-27 05:44:56.549 D/StrictMode( 1760): 	at android.os.Parcel.readExceptionCode(Parcel.java:3002)
+10-27 05:44:56.549 D/StrictMode( 1760): 	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:139)
+10-27 05:44:56.954 D/ConnectivityService(  519): requestNetwork for uid/pid:10192/3339 activeRequest: null callbackRequest: 99 [NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+10-27 05:44:56.955 D/WifiNetworkFactory(  519): got request NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]
+10-27 05:44:56.955 D/UntrustedWifiNetworkFactory(  519): got request NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]
+10-27 05:44:56.955 D/OemPaidWifiNetworkFactory(  519): got request NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]
+10-27 05:44:56.955 D/MultiInternetWifiNetworkFactory(  519): got request NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ]
+10-27 05:44:56.978 I/cr_WebViewApkApp( 3736): Launched version=113.0.5672.136 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+10-27 05:44:57.023 I/ActivityManager(  519): Start proc 3828:com.google.android.webview:webview_apk/u0a134 for service {com.google.android.webview/org.chromium.android_webview.nonembedded.AwComponentUpdateService}
+10-27 05:44:57.159 E/unknown:FabricUIManager( 3339): Exception thrown when executing UIFrameGuarded
+10-27 05:44:57.159 E/unknown:FabricUIManager( 3339): java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Double
+10-27 05:44:57.159 W/unknown:BridgelessReact( 3339): ReactHost{0}.handleHostException(message = "java.lang.String cannot be cast to java.lang.Double")
+10-27 05:44:57.159 D/AndroidRuntime( 3339): Shutting down VM
+10-27 05:44:57.160 E/AndroidRuntime( 3339): FATAL EXCEPTION: main
+10-27 05:44:57.160 E/AndroidRuntime( 3339): Process: com.phoenixholmes.unionhub, PID: 3339
+10-27 05:44:57.160 E/AndroidRuntime( 3339): java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Double
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at rb.Z(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:137)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.uimanager.ViewManager.updateProperties(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:33)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.uimanager.ViewManager.createViewInstance(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:62)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.uimanager.ViewManager.createView(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:1)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.fabric.mounting.SurfaceMountingManager.createViewUnsafe(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:128)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.fabric.mounting.SurfaceMountingManager.preallocateView(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:29)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.fabric.mounting.mountitems.PreAllocateViewMountItem.execute(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:49)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.executeOrEnqueue(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:58)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.dispatchPreMountItemsImpl$lambda$8(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:47)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.dispatchPreMountItemsImpl(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:22)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.dispatchPreMountItems(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:18)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.facebook.react.fabric.FabricUIManager$DispatchUIFrameCallback.doFrameGuarded(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:134)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at kk2.doFrame(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:1)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at zi.doFrame(r8-map-id-17afe56aabe5cd294522ddd721548f5c5e7828d99cc1ae7dd2136331a89c303f:53)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1337)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1348)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.view.Choreographer.doCallbacks(Choreographer.java:952)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.view.Choreographer.doFrame(Choreographer.java:878)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:1322)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.os.Handler.handleCallback(Handler.java:958)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.os.Looper.loopOnce(Looper.java:205)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.os.Looper.loop(Looper.java:294)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at java.lang.reflect.Method.invoke(Native Method)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+10-27 05:44:57.160 E/AndroidRuntime( 3339): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+10-27 05:44:57.182 E/PackageManager(  519): java.util.concurrent.TimeoutException: [Optimistic Bind] Didn't bind to resolver in time!
+10-27 05:44:57.260 W/ActivityTaskManager(  519):   Force finishing activity com.phoenixholmes.unionhub/.MainActivity
+10-27 05:44:57.273 D/nativeloader( 3828): Configuring clns-6 for other apk /data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/lib/x86_64:/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+10-27 05:44:57.275 D/nativeloader( 3828): Configuring clns-7 for other apk /data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/lib/x86_64:/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+10-27 05:44:57.289 I/cr_WebViewApkApp( 3828): Launched version=113.0.5672.136 minSdkVersion=29 isBundle=false processName=com.google.android.webview:webview_apk
+10-27 05:44:57.388 I/AiAiEcho( 1652): AppFetcherImplV2 updateApps package:[com.phoenixholmes.unionhub], userId:[0], reason:[package is added.].
+10-27 05:44:57.446 I/ImeTracker(  519): com.phoenixholmes.unionhub:2df49d7a: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_REMOVE_CLIENT
+10-27 05:44:57.446 I/ImeTracker(  519): com.phoenixholmes.unionhub:2df49d7a: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-27 05:44:57.447 I/WindowManager(  519): WIN DEATH: Window{d1014c8 u0 com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity}
+10-27 05:44:57.447 W/InputManager-JNI(  519): Input channel object 'd1014c8 com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity (client)' was disposed without first being removed with the input manager!
+10-27 05:44:57.447 I/ActivityManager(  519): Process com.phoenixholmes.unionhub (pid 3339) has died: prcp TOP 
+10-27 05:44:57.448 D/ConnectivityService(  519): releasing NetworkRequest [ REQUEST id=94, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ] (release request)
+10-27 05:44:57.449 D/ConnectivityService(  519): releasing NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10192 RequestorUid: 10192 RequestorPkg: com.phoenixholmes.unionhub UnderlyingNetworks: Null] ] (release request)
+10-27 05:44:57.450 I/ActivityManager(  519): Killing 3736:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a192i0 (adj 0): isolated not needed
+10-27 05:44:57.510 W/WindowManager(  519): Failed to deliver inset control state change to w=Window{d1014c8 u0 com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity EXITING}
+10-27 05:44:57.510 W/WindowManager(  519): android.os.DeadObjectException
+10-27 05:44:57.638 V/WindowManager(  519):     info={id=7 t=CLOSE f=0x10 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{f911052 Task{609b59d #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0x6d124e0 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{74028b4 Task{7873b58 #8 type=standard A=10192:com.phoenixholmes.unionhub}}} m=CLOSE f=NONE leash=Surface(name=Task=8)/@0x9fde7a1 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{47a6a53 token=android.os.Binder@58ca42})/@0x79c0f1e sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+10-27 05:44:57.642 W/ModernMediaScanner( 1667): android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+10-27 05:44:57.723 W/WindowManager(  519): Exception thrown during dispatchAppVisibility Window{d1014c8 u0 com.phoenixholmes.unionhub/com.phoenixholmes.unionhub.MainActivity EXITING}
+10-27 05:44:57.723 W/WindowManager(  519): android.os.DeadObjectException
+10-27 05:44:57.851 W/ActivityTaskManager(  519): Activity top resumed state loss timeout for ActivityRecord{df9eed4 u0 com.phoenixholmes.unionhub/.MainActivity t-1 f}}
+10-27 05:44:58.329 I/NearbyDiscovery( 1401): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:44:58.369 W/cr_AWNetworkFetcherTask( 3828): IOException during downloadToFile.
+10-27 05:44:58.369 W/cr_AWNetworkFetcherTask( 3828): java.io.IOException: Cleartext HTTP traffic to edgedl.me.gvt1.com not permitted
+10-27 05:44:58.369 W/cr_AWNetworkFetcherTask( 3828): 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:48)
+10-27 05:44:58.852 I/SafetyLabelChangedBroadcastReceiver(  836): received broadcast packageName: com.phoenixholmes.unionhub, current user: UserHandle{0}, packageChangeEvent: NEW_INSTALL, intent user: UserHandle{0}
+10-27 05:44:59.222 I/AiAiEcho( 1652): AppFetcherImpl onPackageChanged com.phoenixholmes.unionhub.
+10-27 05:44:59.223 I/AiAiEcho( 1652): AppIndexer Package:[com.phoenixholmes.unionhub] UserProfile:[0] Enabled:[true].
+10-27 05:44:59.223 I/AiAiEcho( 1652): AppFetcherImplV2 updateApps package:[com.phoenixholmes.unionhub], userId:[0], reason:[package is updated.].
+10-27 05:44:59.322 E/dlpn    ( 1401): RuntimeException while executing runnable dlqc{qze@f659c73} with executor MoreExecutors.directExecutor()
+10-27 05:44:59.322 E/dlpn    ( 1401): java.lang.NullPointerException: Attempt to get length of null array
+10-27 05:44:59.554 W/GCM-GMS ( 1449): Failed to get direct boot token: java.io.IOException: AUTHENTICATION_FAILED
+10-27 05:44:59.579 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:59.670 W/GCM-GMS ( 1449): Failed to get registration: java.io.IOException: AUTHENTICATION_FAILED
+10-27 05:44:59.755 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:59.900 I/NearbyDiscovery( 1401): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:44:59.943 E/OneSearchSuggestProvider( 1099): io.grpc.StatusRuntimeException: UNKNOWN
+10-27 05:44:59.971 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:44:59.977 W/SnapshotHandler( 1746): java.io.FileNotFoundException: /data/user/0/com.google.android.googlequicksearchbox/files/phenotype/shared/com.google.android.libraries.notifications#com.google.android.googlequicksearchbox.pb: open failed: ENOENT (No such file or directory)
+10-27 05:44:59.977 W/SnapshotHandler( 1746): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:00.022 W/SnapshotHandler( 1746): java.io.FileNotFoundException: /data/user/0/com.google.android.googlequicksearchbox/files/phenotype/shared/com.google.android.libraries.notifications.platform#com.google.android.googlequicksearchbox.pb: open failed: ENOENT (No such file or directory)
+10-27 05:45:00.022 W/SnapshotHandler( 1746): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:00.677 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:01.219 W/SemanticLocation( 1401): java.util.concurrent.TimeoutException: Waited 5000 milliseconds (plus 765564 nanoseconds delay) for dlnx@289677c[status=PENDING, info=[function=[bzrs@7f10805]]]
+10-27 05:45:02.675 I/NearbyDiscovery( 1401): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:45:02.703 I/AiAiTextClassifier( 1652): java.lang.RuntimeException: Request of 1 packs for text-classifier-actions failed
+10-27 05:45:03.001 E/SystemServiceRegistry( 1055): android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+10-27 05:45:03.042 E/HardwareInfoFeatureProviderImpl( 1055): java.lang.NumberFormatException: For input string: "E"
+10-27 05:45:03.275 W/FileUtils(  519): android.system.ErrnoException: chmod failed: ENOENT (No such file or directory)
+10-27 05:45:03.295 W/PhenotypeRegOp( 1449): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:45:03.383 D/PrefCtrlListHelper( 1055): Could not find Context-only controller for pref: com.android.settings.deviceinfo.legal.WebViewLicensePreferenceController
+10-27 05:45:03.955 E/cr_CronetUrlRequestContext( 1746): Exception in upload method
+10-27 05:45:04.186 E/PhoneInterfaceManager( 1052): isVoNrEnabled: CommandException: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+10-27 05:45:04.186 E/PhoneInterfaceManager( 1052): isVoNrEnabled: CommandException: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+10-27 05:45:04.368 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:04.394 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:04.470 W/GLSUser ( 1401): [AppCertManager] Exception while requesting key: 
+10-27 05:45:04.470 W/GLSUser ( 1401): java.io.IOException: Invalid device key response.
+10-27 05:45:04.586 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:04.681 E/PhenotypeFlagCommitter( 4101): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:45:04.770 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:05.121 I/BlockstoreStorage( 1449): Clearing Blockstore Data for package com.phoenixholmes.unionhub [CONTEXT service_id=258 ]
+10-27 05:45:05.339 E/IndexablesProvider( 4367): java.lang.IllegalStateException: We should initialize FormFactorUtils before getting instance.
+10-27 05:45:06.239 E/bwel    ( 1401): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:45:06.305 E/PhenotypeFlagCommitter( 1449): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:45:06.527 W/BugleRcs( 4336): android.content.pm.PackageManager$NameNotFoundException: com.google.android.ims
+10-27 05:45:07.097 E/enyj    ( 1449): java.lang.RuntimeException: ManagedChannel allocation site
+10-27 05:45:07.097 E/enyj    ( 1449): java.lang.RuntimeException: ManagedChannel allocation site
+10-27 05:45:07.210 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:07.309 W/PeoplePU( 1449): java.lang.IllegalArgumentException: Unknown component: ComponentInfo{com.google.android.syncadapters.contacts/com.google.android.syncadapters.contacts.ProxyGalProvider}
+10-27 05:45:07.309 W/PeoplePU( 1449): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3061)
+10-27 05:45:07.309 W/PeoplePU( 1449): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-27 05:45:07.309 W/PeoplePU( 1449): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-27 05:45:07.309 W/PeoplePU( 1449): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-27 05:45:07.309 W/PeoplePU( 1449): Caused by: android.os.RemoteException: Remote stack trace:
+10-27 05:45:07.347 W/PeoplePU( 1449): android.content.pm.PackageManager$NameNotFoundException: ComponentInfo{com.google.android.gms/com.google.android.gms.people.sync.focus.ContactsSyncAdapterService}
+10-27 05:45:07.433 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:07.755 I/SemanticLocation( 1401): java.io.FileNotFoundException: /data/user/0/com.google.android.gms/files/default_model_bundle_metadata.pb: open failed: ENOENT (No such file or directory)
+10-27 05:45:07.755 I/SemanticLocation( 1401): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:07.757 I/SemanticLocation( 1401): java.io.FileNotFoundException: /data/user/0/com.google.android.gms/files/model_bundle_metadata.pb: open failed: ENOENT (No such file or directory)
+10-27 05:45:07.757 I/SemanticLocation( 1401): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:07.960 I/SemanticLocation( 1401): java.io.FileNotFoundException: /data/user/0/com.google.android.gms/files/model_bundle_metadata.pb: open failed: ENOENT (No such file or directory)
+10-27 05:45:07.960 I/SemanticLocation( 1401): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:08.407 I/NearbyDiscovery( 1401): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:45:09.412 I/SemanticLocation( 1401): java.io.FileNotFoundException: /data/user/0/com.google.android.gms/files/model_bundle_metadata.pb: open failed: ENOENT (No such file or directory)
+10-27 05:45:09.412 I/SemanticLocation( 1401): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:09.533 I/SemanticLocation( 1401): java.io.FileNotFoundException: /data/user/0/com.google.android.gms/files/model_bundle_metadata.pb: open failed: ENOENT (No such file or directory)
+10-27 05:45:09.533 I/SemanticLocation( 1401): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:09.630 E/PhenotypeFlagCommitter( 1449): java.util.concurrent.TimeoutException: Timed out waiting for Task
+10-27 05:45:09.711 I/SemanticLocation( 1401): java.io.FileNotFoundException: /data/user/0/com.google.android.gms/files/model_bundle_metadata.pb: open failed: ENOENT (No such file or directory)
+10-27 05:45:09.711 I/SemanticLocation( 1401): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:10.141 W/ModernMediaScanner( 1667): android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+10-27 05:45:10.141 W/ModernMediaScanner( 1667): android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+10-27 05:45:10.498 E/RecoverySnapshotStorage(  519): java.io.FileNotFoundException: /data/system/recoverablekeystore/snapshots/10131.xml: open failed: ENOENT (No such file or directory)
+10-27 05:45:10.498 E/RecoverySnapshotStorage(  519): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:10.810 E/RecoverySnapshotStorage(  519): java.io.FileNotFoundException: /data/system/recoverablekeystore/snapshots/10131.xml: open failed: ENOENT (No such file or directory)
+10-27 05:45:10.810 E/RecoverySnapshotStorage(  519): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:10.814 W/RecoverableKeyStoreGms( 1449): [WrappingKeyManager] InternalRecoveryServiceException during wrapping key generation [CONTEXT service_id=172 ]
+10-27 05:45:10.814 W/RecoverableKeyStoreGms( 1449): android.security.keystore.recovery.InternalRecoveryServiceException: Failed to import secret key.
+10-27 05:45:10.814 W/RecoverableKeyStoreGms( 1449): 	at android.security.keystore.recovery.RecoveryController.wrapUnexpectedServiceSpecificException(RecoveryController.java:783)
+10-27 05:45:10.814 W/RecoverableKeyStoreGms( 1449): Caused by: android.os.ServiceSpecificException: Failed to import secret key. (code 22)
+10-27 05:45:10.814 W/RecoverableKeyStoreGms( 1449): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3071)
+10-27 05:45:10.814 W/RecoverableKeyStoreGms( 1449): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-27 05:45:10.814 W/RecoverableKeyStoreGms( 1449): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-27 05:45:10.814 W/RecoverableKeyStoreGms( 1449): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-27 05:45:11.009 W/NetworkScheduler( 1401): java.lang.IllegalArgumentException: Only the following extra parameter types are supported: Integer, Long, Double, String, Boolean, and nested Bundles with the same restrictions.
+10-27 05:45:11.223 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:11.225 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:11.353 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:11.409 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:12.124 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:12.179 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:12.816 E/RecoverySnapshotStorage(  519): java.io.FileNotFoundException: /data/system/recoverablekeystore/snapshots/10131.xml: open failed: ENOENT (No such file or directory)
+10-27 05:45:12.816 E/RecoverySnapshotStorage(  519): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-27 05:45:12.819 W/RecoverableKeyStoreGms( 1449): [WrappingKeyManager] InternalRecoveryServiceException during wrapping key generation [CONTEXT service_id=172 ]
+10-27 05:45:12.819 W/RecoverableKeyStoreGms( 1449): android.security.keystore.recovery.InternalRecoveryServiceException: Failed to import secret key.
+10-27 05:45:12.819 W/RecoverableKeyStoreGms( 1449): 	at android.security.keystore.recovery.RecoveryController.wrapUnexpectedServiceSpecificException(RecoveryController.java:783)
+10-27 05:45:12.819 W/RecoverableKeyStoreGms( 1449): Caused by: android.os.ServiceSpecificException: Failed to import secret key. (code 22)
+10-27 05:45:12.819 W/RecoverableKeyStoreGms( 1449): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3071)
+10-27 05:45:12.819 W/RecoverableKeyStoreGms( 1449): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-27 05:45:12.819 W/RecoverableKeyStoreGms( 1449): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-27 05:45:12.819 W/RecoverableKeyStoreGms( 1449): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-27 05:45:12.858 W/NetworkScheduler( 1401): java.lang.IllegalArgumentException: Only the following extra parameter types are supported: Integer, Long, Double, String, Boolean, and nested Bundles with the same restrictions.
+10-27 05:45:13.375 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:13.494 W/Conscrypt( 1449): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:14.320 W/ModernMediaScanner( 1667): android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+10-27 05:45:14.387 W/MediaProvider( 1667): java.io.IOException: Failed to update quota type for /storage/emulated/0/Android
+10-27 05:45:14.391 W/MediaProvider( 1667): java.io.IOException: Failed to update quota type for /storage/emulated/0/Android/media
+10-27 05:45:16.388 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.network.NetworkProviderSimsCategoryController
+10-27 05:45:16.388 W/SliceDataConverter( 1055): Caused by: java.lang.NoSuchMethodException: com.android.settings.network.NetworkProviderSimsCategoryController.<init> [class android.content.Context, class java.lang.String]
+10-27 05:45:16.414 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-27 05:45:16.414 W/SliceDataConverter( 1055): Caused by: java.lang.ClassNotFoundException: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-27 05:45:16.414 W/SliceDataConverter( 1055): Caused by: java.lang.ClassNotFoundException: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-27 05:45:16.419 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.development.DevelopmentMemtagFooterPreferenceController
+10-27 05:45:16.419 W/SliceDataConverter( 1055): Caused by: java.lang.ClassNotFoundException: com.android.settings.development.DevelopmentMemtagFooterPreferenceController
+10-27 05:45:16.419 W/SliceDataConverter( 1055): Caused by: java.lang.ClassNotFoundException: com.android.settings.development.DevelopmentMemtagFooterPreferenceController
+10-27 05:45:16.421 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.accessibility.VibrationMainSwitchPreferenceController
+10-27 05:45:16.421 W/SliceDataConverter( 1055): Caused by: java.lang.reflect.InvocationTargetException
+10-27 05:45:16.421 W/SliceDataConverter( 1055): Caused by: java.lang.RuntimeException: Can't create handler inside thread Thread[binder:1055_6,5,main] that has not called Looper.prepare()
+10-27 05:45:16.431 E/SystemServiceRegistry( 1055): android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+10-27 05:45:16.438 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.network.telephony.CallsDefaultSubscriptionController
+10-27 05:45:16.438 W/SliceDataConverter( 1055): Caused by: java.lang.NoSuchMethodException: com.android.settings.network.telephony.CallsDefaultSubscriptionController.<init> [class android.content.Context, class java.lang.String]
+10-27 05:45:16.441 E/HardwareInfoFeatureProviderImpl( 1055): java.lang.NumberFormatException: For input string: "E"
+10-27 05:45:16.445 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.applications.credentials.CredentialManagerPreferenceController
+10-27 05:45:16.445 W/SliceDataConverter( 1055): Caused by: java.lang.reflect.InvocationTargetException
+10-27 05:45:16.445 W/SliceDataConverter( 1055): Caused by: java.lang.RuntimeException: Can't create handler inside thread Thread[binder:1055_6,5,main] that has not called Looper.prepare()
+10-27 05:45:16.446 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.network.telephony.CallsDefaultSubscriptionController
+10-27 05:45:16.446 W/SliceDataConverter( 1055): Caused by: java.lang.NoSuchMethodException: com.android.settings.network.telephony.CallsDefaultSubscriptionController.<init> [class android.content.Context, class java.lang.String]
+10-27 05:45:16.447 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-27 05:45:16.447 W/SliceDataConverter( 1055): Caused by: java.lang.ClassNotFoundException: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-27 05:45:16.447 W/SliceDataConverter( 1055): Caused by: java.lang.ClassNotFoundException: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-27 05:45:16.463 W/SliceDataConverter( 1055): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.fuelgauge.batteryusage.BatteryChartPreferenceController
+10-27 05:45:16.463 W/SliceDataConverter( 1055): Caused by: java.lang.NoSuchMethodException: com.android.settings.fuelgauge.batteryusage.BatteryChartPreferenceController.<init> [class android.content.Context, class java.lang.String]
+10-27 05:45:16.941 I/HeterodyneSyncScheduler( 1401): Scheduling Phenotype for a PhenotypeSyncImmediately(6, org.chromium.net.cronet) one off with window [1, 2] in seconds [CONTEXT service_id=51 ]
+10-27 05:45:18.992 E/cr_CronetUrlRequestContext( 1746): Exception in upload method
+10-27 05:45:21.329 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:21.435 W/Conscrypt( 1401): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-27 05:45:21.448 D/nativeloader( 4701): Configuring clns-6 for other apk /data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/lib/x86_64:/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+10-27 05:45:21.450 D/nativeloader( 4701): Configuring clns-7 for other apk /data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/lib/x86_64:/data/app/~~ZEQyiGDLIDT5Su3fq7ydkA==/com.google.android.webview-DdwfUCrC5K1K4oPcrDKOsA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~ANC2kfFTY4zwxW5MOwAMZA==/com.google.android.trichromelibrary_567263637-e8plAqK46GzbA3m2J6mFWQ==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+10-27 05:45:21.456 I/cr_WebViewApkApp( 4701): Launched version=113.0.5672.136 minSdkVersion=29 isBundle=false processName=com.google.android.webview
+10-27 05:45:21.546 W/AsyncOperation( 1401): OperationException[Status{statusCode=Stale snapshot for com.google.apps.dynamite.device#com.google.android.gm(change count changed - expected 1  but was 0), resolution=null}]
+10-27 05:45:21.549 W/AsyncOperation( 1401): OperationException[Status{statusCode=Stale snapshot for com.google.android.libraries.communications.conference.device#com.google.android.gm(change count changed - expected 2  but was 0), resolution=null}]
+10-27 05:45:22.265 W/RcsClientLib( 4336): java.lang.IllegalStateException: JibeService Not Initialized
+10-27 05:45:22.265 W/RcsClientLib( 4336): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-27 05:45:22.265 W/RcsClientLib( 4336): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-27 05:45:22.265 W/RcsClientLib( 4336): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-27 05:45:22.265 W/RcsClientLib( 4336): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-27 05:45:22.265 W/RcsClientLib( 4336): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-27 05:45:22.271 W/RcsClientLib( 4336): java.lang.IllegalStateException: JibeService Not Initialized
+10-27 05:45:22.271 W/RcsClientLib( 4336): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-27 05:45:22.271 W/RcsClientLib( 4336): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-27 05:45:22.271 W/RcsClientLib( 4336): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-27 05:45:22.271 W/RcsClientLib( 4336): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-27 05:45:22.271 W/RcsClientLib( 4336): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-27 05:45:22.363 W/AsyncOperation( 1401): OperationException[Status{statusCode=Stale snapshot for com.google.android.apps.messaging#com.google.android.apps.messaging(change count changed - expected 3  but was 2), resolution=null}]
+10-27 05:45:22.373 W/AsyncOperation( 1401): OperationException[Status{statusCode=Stale snapshot for com.google.android.apps.messaging#com.google.android.apps.messaging(change count changed - expected 3  but was 2), resolution=null}]
+10-27 05:45:22.502 W/AsyncOperation( 1401): OperationException[Status{statusCode=Stale snapshot for com.google.android.gms.semanticlocation(change count changed - expected 2  but was 1), resolution=null}]
+10-27 05:45:22.503 W/PhenotypeFlagCommitter( 1401): java.util.concurrent.ExecutionException: aard: 29501: Stale snapshot for com.google.android.gms.semanticlocation(change count changed - expected 2  but was 1)
+10-27 05:45:22.503 W/PhenotypeCommitHelper( 1401): java.util.concurrent.ExecutionException: aard: 29501: Stale snapshot for com.google.android.gms.semanticlocation(change count changed - expected 2  but was 1)
+10-27 05:45:22.657 W/AsyncOperation( 1401): OperationException[Status{statusCode=Stale snapshot for com.google.android.apps.messaging.auto#com.google.android.apps.messaging(change count changed - expected 3  but was 2), resolution=null}]
+10-27 05:45:22.831 E/BugleRcsEngine( 4738): [2] JibeService.onDestroy: JibeService: onDestroy() unregister factory exception: java.lang.IllegalArgumentException: Receiver not registered: com.google.android.ims.receiver.sip.DebugOptionsReceiver@528ecb8
+10-27 05:45:22.842 W/RcsClientLib( 4336): java.lang.IllegalStateException: JibeService Not Initialized
+10-27 05:45:22.842 W/RcsClientLib( 4336): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-27 05:45:22.842 W/RcsClientLib( 4336): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-27 05:45:22.842 W/RcsClientLib( 4336): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-27 05:45:22.842 W/RcsClientLib( 4336): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-27 05:45:22.842 W/RcsClientLib( 4336): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-27 05:45:23.227 W/CorpusConfigHelper( 1746): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-27 05:45:23.304 I/cr_CronetUrlRequestContext( 4336): destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@99d4973
+10-27 05:45:23.349 E/BugleRcsEngine( 4738): [2] JibeService.onDestroy: JibeService: onDestroy() unregister factory exception: java.lang.IllegalArgumentException: Receiver not registered: com.google.android.ims.receiver.sip.DebugOptionsReceiver@528ecb8
+10-27 05:45:23.482 W/CorpusConfigHelper( 1746): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-27 05:45:23.735 E/VS.BluetoothShim( 1672): java.lang.NoSuchMethodException: android.bluetooth.BluetoothHeadset.startScoUsingVirtualVoiceCall [class android.bluetooth.BluetoothDevice]
+10-27 05:45:23.827 W/RcsClientLib( 4336): java.lang.IllegalStateException: JibeService Not Initialized
+10-27 05:45:23.827 W/RcsClientLib( 4336): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-27 05:45:23.827 W/RcsClientLib( 4336): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-27 05:45:23.827 W/RcsClientLib( 4336): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-27 05:45:23.827 W/RcsClientLib( 4336): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-27 05:45:23.827 W/RcsClientLib( 4336): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-27 05:45:24.331 W/CorpusConfigHelper( 1746): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-27 05:45:24.358 E/BugleRcsEngine( 4738): [2] JibeService.onDestroy: JibeService: onDestroy() unregister factory exception: java.lang.IllegalArgumentException: Receiver not registered: com.google.android.ims.receiver.sip.DebugOptionsReceiver@528ecb8
+10-27 05:45:24.790 W/CorpusConfigHelper( 1746): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-27 05:45:24.909 E/SystemServiceRegistry( 1055): android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
